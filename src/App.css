@@ -68,10 +68,6 @@ form {
   border-bottom: 2px solid black;
 }
 
-.task-input.complete {
-  opacity: 0.7;
-}
-
 .task-input.complete input[type="text"] {
   text-decoration: line-through;
 }
@@ -133,6 +129,7 @@ select {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .popup-input {
@@ -158,4 +155,8 @@ select {
   font-size: 14px;
   cursor: pointer;
   margin: 0 0 0 5px;
+}
+
+.action-info {
+  cursor: pointer;
 }
