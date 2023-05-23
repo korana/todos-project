@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 
 //Reducer
 import { TodoInfo } from "../reducer/todoReducer";
@@ -14,6 +14,10 @@ const ProgressBar: FC<ProgressBarProps> = ({ todos }) => {
   // State
   const [progress, setProgress] = useState<number>(0);
 
+  useEffect(() => {
+    setProgress(Math.round((completedTodos / todoQuantity) * 100));
+  }, [todos]);
+
   const getColor = () => {
     if (progress < 40) {
       return "#ff0000";
@@ -28,9 +32,9 @@ const ProgressBar: FC<ProgressBarProps> = ({ todos }) => {
     <>
       <div className="progress-input">
         <h3>Progress</h3>
-        <div className="progress-bar">
-          <div className="progress-bar-fill" style={{ width: '${Math.round((completedTodos / todoQuantity) * 100)}%', backgroundColor: getColor()}}>
-            {Math.round((completedTodos / todoQuantity) * 100)}%
+        <div className="progress-ba">
+          <div className="progress-fill" style={{ width: `${progress}%`, backgroundColor: getColor()}}>
+            {progress}%
           </div>
         </div>
         <p>

@@ -9,17 +9,24 @@ export interface Action {
     | "ADD_TODO"
     | "COMPLETED_TODO"
     | "UPDATE_TODO"
-    | "DELETE_TODO";
-  payload: TodoInfo | Update ;
+    | "DELETE_TODO"
+    | "SET_TODOS";
+  payload: TodoInfo | TodoInfo[] | Update | Complete | Delete ;
 }
-
 export interface Update {
   id: string;
   title?: string;
 }
-
 export interface State {
   todos: TodoInfo[];
+}
+
+export interface Complete {
+  id: string;
+}
+
+export interface Delete {
+  id: string;
 }
 
 export const todoReducer = (state: State, action: Action) => {
@@ -31,9 +38,10 @@ export const todoReducer = (state: State, action: Action) => {
       };
 
     case "COMPLETED_TODO":
+      const {id: completedId} = action.payload as Complete
       return {
         todos: state.todos.map((todo) => {
-          if (todo.id === action.payload.id) {
+          if (todo.id === completedId) {
             return { ...todo, completed: !todo.completed };
           }
           return todo;
@@ -41,12 +49,13 @@ export const todoReducer = (state: State, action: Action) => {
       };
 
     case "UPDATE_TODO":
+      const {id:updateId, title:updateTitle} = action.payload as Update
       return {
         todos: state.todos.map((todo) => {
-          if (todo.id === action.payload.id) {
+          if (todo.id === updateId) {
             return {
               ...todo,
-              title: action.payload.title,
+              title: updateTitle,
             };
           }
           return todo;
@@ -54,10 +63,17 @@ export const todoReducer = (state: State, action: Action) => {
       };
 
     case "DELETE_TODO":
+      const {id: deleteId} = action.payload as Delete
       return {
         ...state,
-        todos: state.todos.filter((todo) => todo.id !== action.payload.id),
+        todos: state.todos.filter((todo) => todo.id !== deleteId),
       };
+
+    case "SET_TODOS":
+      return {
+        ...state,
+        todos: action.payload as TodoInfo[]
+      }
 
     default:
       return state;

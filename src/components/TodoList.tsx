@@ -1,5 +1,6 @@
 import { FC, useState, useEffect } from "react";
 import { BsThreeDots } from "react-icons/bs";
+import {BiCheckbox, BiChevronDownSquare} from "react-icons/bi"
 
 //Components
 import EditMenu from "./EditMenu";
@@ -86,11 +87,14 @@ const TodoList: FC<TodoListProps> = ({ todos, dispatch }) => {
         </select>
       </div>
       <div>
-        {todos.map((todo) => (
+        {filterTodos.map((todo) => (
           <div
             className={todo.completed ? "task-input complete" : "task-input"}
           >
-            <input type="checkbox" onChange={() => handleComplete(todo)} />
+            <div onClick={() => handleComplete(todo)} >
+            {todo.completed ? <BiChevronDownSquare size={20} /> : < BiCheckbox size={24} />}
+          </div>
+          
             {editingTodoId === todo.id ? (
               <>
                 <input
