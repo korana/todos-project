@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+form {
+  width: 65%;
+  border-radius: 20px;
+  background-color: #f5f5f5;
+  padding: 30px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.progress-input {
+  border-color: black;
+  border: solid;
+  border-radius: 20px;
+  background-color: #e07c7c;
+  padding: 20px;
+}
+
+.task {
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.todo-input {
+  border-radius: 60px;
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0 0 0;
+  font-size: 16px;
+}
+
+.add-button {
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.task-input input[type="checkbox"] {
+  width: unset;
+  min-height: 1em;
+  margin: 0 0.5em 0 0;
+  vertical-align: middle;
+}
+
+.task-input input[type="text"] {
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  font-weight: 400;
+  color: black;
+  font-size: 16px;
+  flex: 1 1 0%;
+  margin-right: 1rem;
+}
+
+.task-input input[type="text"]:not(:disabled) {
+  border-bottom: 2px solid black;
+}
+
+.task-input.complete {
+  opacity: 0.7;
+}
+
+.task-input.complete input[type="text"] {
+  text-decoration: line-through;
+}
+
+.task-input:hover,
+.task-input:focus-within {
+  outline: 2px solid black;
+}
+
+.task-input {
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  width: 100%;
+  margin: 10px 0 0 0;
+  border-radius: 60px;
+  padding: 10px 20px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  color: white;
+}
+
+h5 {
+  padding: 3px;
+}
+
+.progress-input p {
+  color: white;
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+select {
+  border-radius: 5px;
+  font-size: small;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background-color: #3b3b3b;
+}
+
+.progress-bar-fill {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #ffffff;
+  transition: width 0.5s ease-out;
+  font-size: 10px;
+}
+
+.popup-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.popup-input {
+  width: 8%;
+  position: absolute;
+  margin: 0 -110px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.save-button {
+  border-radius: 10px;
+  padding: 0 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  border-radius: 10px;
+  padding: 0 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0 0 0 5px;
+}
